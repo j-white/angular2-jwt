@@ -1,4 +1,3 @@
-import { Base64 } from 'js-base64';
 import { Injectable, Provider } from '@angular/core';
 import { Http, Headers, Request, RequestOptions, RequestOptionsArgs, RequestMethod, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -189,7 +188,7 @@ export class JwtHelper {
       }
     }
     // This does not use btoa because it does not support unicode and the various fixes were... wonky.
-    return Base64.decode(output);
+    return btoa(output);
   }
 
   public decodeToken(token: string): any {
